@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- 日志打印格式 -->
+    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %5p [%15.15t] %-40.40logger{39} : %m%n"/>
+
+    <!-- 控制台输出日志 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${log.pattern}</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+
+    <!--logback设置第三方包中的日志级别-->
+	<!-- spring -->
+    <logger name="org.springframework" level="INFO"/>
+    <!-- 生产环境请使用：INFO  -->
+    <logger name="com.zd.core" level="DEBUG"/>
+    <logger name="com.zhi.sync" level="DEBUG"/>
+    <!-- 打印sql -->
+    <logger name="org.springframework.jdbc.core.JdbcTemplate" level="DEBUG"/>
+    <!-- 生成环境请设置为:DEBUG -->
+    <logger name="org.springframework.jdbc.core.StatementCreatorUtils" level="DEBUG"/>
+
+    <!-- 日志输出级别 -->
+    <root level="warn">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
