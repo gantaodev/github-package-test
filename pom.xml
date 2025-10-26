@@ -35,32 +35,37 @@
         </dependency>
     </dependencies>
 
-    <repositories>
-        <repository>
-            <id>zd-nexus</id>
-            <name>zd-repository</name>
-            <url>http://172.23.86.97:8081/repository/maven-public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-    </repositories>
+    <!--    <repositories>-->
+    <!--        <repository>-->
+    <!--            <id>zd-nexus</id>-->
+    <!--            <name>zd-repository</name>-->
+    <!--            <url>http://172.23.86.97:8081/repository/maven-public/</url>-->
+    <!--            <releases>-->
+    <!--                <enabled>true</enabled>-->
+    <!--            </releases>-->
+    <!--        </repository>-->
+    <!--    </repositories>-->
 
     <!-- maven命令需要的插件（比如clean、install都是maven的插件） -->
-    <pluginRepositories>
-        <pluginRepository>
-            <id>zd-nexus-plugin</id>
-            <url>http://172.23.86.97:8081/repository/maven-public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </pluginRepository>
-    </pluginRepositories>
+    <!--    <pluginRepositories>-->
+    <!--        <pluginRepository>-->
+    <!--            <id>zd-nexus-plugin</id>-->
+    <!--            <url>http://172.23.86.97:8081/repository/maven-public/</url>-->
+    <!--            <releases>-->
+    <!--                <enabled>true</enabled>-->
+    <!--            </releases>-->
+    <!--        </pluginRepository>-->
+    <!--    </pluginRepositories>-->
 
     <distributionManagement>
+        <!--        <repository>-->
+        <!--            <id>zd-nexus-releases</id>-->
+        <!--            <url>http://172.23.86.97:8081/repository/maven-releases/</url>-->
+        <!--        </repository>-->
         <repository>
-            <id>zd-nexus-releases</id>
-            <url>http://172.23.86.97:8081/repository/maven-releases/</url>
+            <id>gantaodev</id>
+            <name>GitHub Core Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/gantaodev/github-package-test</url>
         </repository>
     </distributionManagement>
 
@@ -68,11 +73,34 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration> <!-- Compile java 7 compatible bytecode -->
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
                         <goals>
                             <goal>jar</goal>
                         </goals>
