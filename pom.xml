@@ -35,33 +35,9 @@
         </dependency>
     </dependencies>
 
-    <!--    <repositories>-->
-    <!--        <repository>-->
-    <!--            <id>zd-nexus</id>-->
-    <!--            <name>zd-repository</name>-->
-    <!--            <url>http://172.23.86.97:8081/repository/maven-public/</url>-->
-    <!--            <releases>-->
-    <!--                <enabled>true</enabled>-->
-    <!--            </releases>-->
-    <!--        </repository>-->
-    <!--    </repositories>-->
-
-    <!-- maven命令需要的插件（比如clean、install都是maven的插件） -->
-    <!--    <pluginRepositories>-->
-    <!--        <pluginRepository>-->
-    <!--            <id>zd-nexus-plugin</id>-->
-    <!--            <url>http://172.23.86.97:8081/repository/maven-public/</url>-->
-    <!--            <releases>-->
-    <!--                <enabled>true</enabled>-->
-    <!--            </releases>-->
-    <!--        </pluginRepository>-->
-    <!--    </pluginRepositories>-->
 
     <distributionManagement>
-        <!--        <repository>-->
-        <!--            <id>zd-nexus-releases</id>-->
-        <!--            <url>http://172.23.86.97:8081/repository/maven-releases/</url>-->
-        <!--        </repository>-->
+
         <repository>
             <id>gantaodev</id>
             <name>GitHub Core Apache Maven Packages</name>
